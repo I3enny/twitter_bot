@@ -25,7 +25,7 @@ class StdOutListener(StreamListener):
 
 
 def main():
-    keywords = ['#cyberattaque', '#cybersecurite', '#cyberdefense', '#FIC2018', 'python']    
+    keywords = ['#cyberattaque', '#cybersecurite', '#cyberdefense', '#FIC2018']
 
     l = StdOutListener()
     auth = OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)

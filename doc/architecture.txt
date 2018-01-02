@@ -1,2 +1,10 @@
-Installer Elasticsearch
-Installer Kibana
+Comment tout faire marcher:
+
+* Créer un compte Twitter
+* Créer une application Twitter (avec les 4 ids nécessaires pour le fichier credentials.py)
+
+Sur la VM:
+* clone git
+* sudo docker run -p 5601:5601 -p 9200:9200 -p 5044:5044 -it --name elk sebp/elk (lance ELK dans un docker)
+* Remplir le fichier src/credentials.py avec 4 IDs
+* src/twitterbot.py remplie la base
