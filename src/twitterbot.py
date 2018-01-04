@@ -2,6 +2,8 @@
 
 from credentials import *
 
+import json
+
 from datetime import datetime
 from elasticsearch import Elasticsearch
 
@@ -16,8 +18,10 @@ class StdOutListener(StreamListener):
         self.es = Elasticsearch()
         
     def on_data(self, data):
-        print(data)
-        self.es.index(index=data[0], doc_type='tweet', body=data)
+        # print(data)
+        json_data = json.loads(data)
+        print(json_data)
+        self.es.index(index=json_data['id'], doc_type='tweet', body=json_data)
         return True
 
     def on_error(self, status):

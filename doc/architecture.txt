@@ -4,7 +4,12 @@ Comment tout faire marcher:
 * Créer une application Twitter (avec les 4 ids nécessaires pour le fichier credentials.py)
 
 Sur la VM:
-* Installer docker:
+* Installer pythoon3.5, pip3
+* Installer les modules python :
+  tweepy
+  json
+  elasticsearch
+* Installer docker :
    $ sudo apt-get update
    $ sudo apt-get install \
        apt-transport-https \
