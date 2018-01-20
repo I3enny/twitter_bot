@@ -3,11 +3,9 @@
 from credentials import *
 
 import json
+import time
 
-from datetime import datetime
 from elasticsearch import Elasticsearch
-
-# from time import gmtime, strftime
 
 from tweepy.streaming import StreamListener
 from tweepy import OAuthHandler
@@ -21,7 +19,7 @@ class StdOutListener(StreamListener):
         # print(data)
         json_data = json.loads(data)
         print(json_data)
-        self.es.index(index=json_data['id'], doc_type='tweet', body=json_data)
+        self.es.index(index=time.strftime("%Y.%m.%d"), doc_type='tweet', body=json_data)
         return True
 
     def on_error(self, status):
@@ -39,4 +37,10 @@ def main():
     stream.filter(track=keywords)
     
 if __name__ == "__main__":
-    main()
+    while True:
+        try:
+            main()
+        except KeyboardInterrupt:
+            raise
+        except Exception as e:
+            print(e)
