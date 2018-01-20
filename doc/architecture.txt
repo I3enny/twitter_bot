@@ -24,6 +24,7 @@ Sur la VM:
    $ sudo apt-get install docker-ce
 * clone git
 * Run docker :
-  $ sudo docker run -p 5601:5601 -p 9200:9200 -p 5044:5044 -it --name elk sebp/elk (lance ELK dans un docker)
+  $ sudo docker-compose up elk (lance ELK dans un docker)
 * Remplir le fichier src/credentials.py avec les 4 IDs
+* Ajouter src/update_date.py dans le crontab (tous les jours)
 * src/twitterbot.py remplie la base
